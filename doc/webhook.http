@@ -31,7 +31,7 @@ content-type: application/json
         "installmentNumber": null,
         "invoiceUrl": "https:\/\/sandbox.asaas.com\/i\/5943999415617448",
         "invoiceNumber": "01764962",
-        "externalReference": "crm@betania_63c6f05500b8f",
+        "externalReference": "brc@sistema_63c6f05500b8f",
         "deleted": false,
         "anticipated": false,
         "anticipable": true,

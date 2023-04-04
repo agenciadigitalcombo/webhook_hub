@@ -19,6 +19,12 @@ class Subscribers
     function list()
     {
         return $this->con->select();
+    }    
+    
+    function list_by_channel(string $channel)
+    {
+        $this->con->where([ "channel" => $channel]);
+        return $this->con->select();
     }
     
     function add(string $channel, string $url )

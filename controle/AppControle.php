@@ -14,7 +14,7 @@ class AppControle extends Controle
             []
         );
     }
-    
+
     static function add_subscribe()
     {
         self::requireInputs([
@@ -52,9 +52,7 @@ class AppControle extends Controle
 
     static function subscribe()
     {
-
         $sub = new Subscribers();
-
         self::printSuccess(
             "Lista Ouvintes",
             $sub->list()
@@ -63,27 +61,64 @@ class AppControle extends Controle
 
     static function events()
     {
+        $ev = new Events();
         self::printSuccess(
             "Lista de eventos",
-            []
+            $ev->list()
         );
     }
 
     static function sent()
     {
+        $sent = new Sent();
         self::printSuccess(
             "Lista de envios",
-            []
+            $sent->list()
         );
     }
-    
+
+
+
     static function webhook()
     {
+        // build save 
         $adapter = new AdapterAsa;
-        
+        $build = $adapter->build($_REQUEST);
+        $channel = $build['channel'];
+        $body = $build['body'];
+        $ev = new Events();
+        $ev->add($channel, $body);
+
+        // list channel
+        $sub = new Subscribers();
+        $all_channels = $sub->list_by_channel($channel);
+
+        // dispath
+        $temp_path = [];
+        $message = new Send();
+        $save_envio = new Sent();
+        foreach ($all_channels as $c) {
+            $path = $c["url"];
+            $status = $message->send($_REQUEST, $path);
+            $temp_path[] = [
+                "path" => $path,
+                "status" => $status,
+            ];
+
+            // save sent
+            $save_envio->add(
+                $channel,
+                $path,
+                $body,
+                $status
+            );
+        }
+
+
+
         self::printSuccess(
             "Salvado com sucesso",
-            $adapter->build($_REQUEST)
+            $temp_path
         );
     }
 }
