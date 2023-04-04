@@ -21,6 +21,7 @@ CREATE TABLE sent (
     channel varchar(255),
     url varchar(255),
     body text,
+    response text,
     status_code varchar(255),
     PRIMARY KEY (id)
 );

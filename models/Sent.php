@@ -23,7 +23,7 @@ class Sent
         return $this->con->select();
     }
 
-    function add(string $channel, string $url, string $body, $status_code )
+    function add(string $channel, string $url, string $body, $status_code, string $response )
     {
         return $this->con->insert([
             "data" => date('Y-m-d'),
@@ -31,6 +31,7 @@ class Sent
             "url" => $url,
             "body" => $body,
             "status_code" => $status_code,
+            "response" => $response
         ]);
     }    
 }

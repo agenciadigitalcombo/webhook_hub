@@ -1,4 +1,4 @@
-POST http://event.con/webhook
+POST https://hub.digitalcombo.com.br/webhook
 content-type: application/json
 
 {
@@ -31,7 +31,7 @@ content-type: application/json
         "installmentNumber": null,
         "invoiceUrl": "https:\/\/sandbox.asaas.com\/i\/5943999415617448",
         "invoiceNumber": "01764962",
-        "externalReference": "brc@sistema_63c6f05500b8f",
+        "externalReference": "brc@teste_63c6f05500b8f",
         "deleted": false,
         "anticipated": false,
         "anticipable": true,

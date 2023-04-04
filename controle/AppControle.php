@@ -99,7 +99,9 @@ class AppControle extends Controle
         $save_envio = new Sent();
         foreach ($all_channels as $c) {
             $path = $c["url"];
-            $status = $message->send($_REQUEST, $path);
+            $res = $message->send($_REQUEST, $path);
+            $status = $res['status'];
+            $response = $res['response'];
             $temp_path[] = [
                 "path" => $path,
                 "status" => $status,
@@ -110,7 +112,8 @@ class AppControle extends Controle
                 $channel,
                 $path,
                 $body,
-                $status
+                $status,
+                $response
             );
         }
 

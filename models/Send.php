@@ -32,9 +32,15 @@ class Send
             $response = curl_exec($con);
             $http_code = curl_getinfo($con, CURLINFO_HTTP_CODE);
             curl_close($con);
-            return $http_code;
+            return [
+                "status" => $http_code,
+                "response" => $response
+            ];
         } catch (\Throwable $th) {
-            return 007;
+            return [
+                "status" => 007,
+                "response" => ''
+            ];
         }
     }
 }
