@@ -114,8 +114,6 @@ class AppControle extends Controle
             );
         }
 
-
-
         self::printSuccess(
             "Salvado com sucesso",
             $temp_path
