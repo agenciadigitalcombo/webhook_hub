@@ -22,7 +22,10 @@ class Send
                 CURLOPT_POSTFIELDS     => $content,
                 CURLOPT_HTTPHEADER     => $this->header,
                 CURLOPT_NOBODY         => true,
-                CURLOPT_TIMEOUT        => 10
+                CURLOPT_TIMEOUT        => 10,
+                CURLOPT_USERAGENT      => 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0)")',
+                CURLOPT_SSL_VERIFYHOST => false,
+                CURLOPT_SSL_VERIFYPEER => false,
             ];
             $con = curl_init();
             curl_setopt_array($con, $options);
