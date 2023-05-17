@@ -1,0 +1,26 @@
+
+POST http://event.con/add-subscribe
+Content-Type: application/x-www-form-urlencoded;
+
+channel=woocomerce@benania_
+&url=http://betania.com.br/api-webhook
+
+###
+POST http://event.con/remove-subscribe
+Content-Type: application/x-www-form-urlencoded;
+
+channel=woocomerce@ref_
+&url=http://betania.curso.com/asaaswebhook
+
+###
+POST http://event.con/subscribe
+Content-Type: application/x-www-form-urlencoded;
+
+
+###
+POST http://event.con/events
+Content-Type: application/x-www-form-urlencoded;
+
+###
+POST http://event.con/sent
+Content-Type: application/x-www-form-urlencoded;

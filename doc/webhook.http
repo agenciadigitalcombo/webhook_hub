@@ -1,5 +1,5 @@
-POST https://hub.digitalcombo.com.br/webhook
-# POST http://event.con/webhook
+
+POST http://event.con/webhook
 content-type: application/json
 
 {

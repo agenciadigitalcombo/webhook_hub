@@ -12,8 +12,8 @@ class Send
 
     public function send(array $payload, string $path)
     {
-        // $content = json_encode($payload, JSON_UNESCAPED_UNICODE);
         try {
+            // $content = json_encode($payload, JSON_UNESCAPED_UNICODE);
             // $options = [
             //     CURLOPT_POST           => true,
             //     CURLOPT_HEADER         => true,
@@ -36,6 +36,7 @@ class Send
             $http_code = 200;
             $ch = curl_init($path);
             $payload = json_encode($payload);
+            
             curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
             curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
